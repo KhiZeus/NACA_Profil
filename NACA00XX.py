@@ -11,7 +11,7 @@ def maximum_profil_naca00xx(epaisseur,corde,precision):
     yt = 5*epaisseur*(0.2969*xc**0.5-.1260*xc-.3516*xc**2+.2843*xc**3-.1036*xc**4)
     max_epaisseur = max(yt)
     max_position = np.argmax(yt)
-    return (max_epaisseur,xc[max_position])
+    return (xc[max_position],max_epaisseur)
 
 
 """ ----------------------------------------------------------------------------------------------------------
