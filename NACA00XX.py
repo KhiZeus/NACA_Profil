@@ -23,3 +23,15 @@ yt = 5*t*(0.2969*xc**0.5-.1260*xc-.3516*xc**2+.2843*xc**3-.1036*xc**4)
 # extrados intrados réels
 yup = yt*corde
 ydown = -yt*corde
+x_reel= corde*xc
+Maximum =(0.5, 0.05)
+Graph_naca = plt.figure(figsize=(8, 5))
+plt.plot(x_reel, yup, 'g--', label='Extrados')
+plt.plot(x_reel, ydown, 'r--', label='Intrados')
+#plt.text(0.5, 0.05, 'Point de fonctionnement')
+plt.xlabel('position de corde (m)')
+plt.ylabel('épaisseur (m)')
+plt.title('Représentation graphique du profil NACA 00' + str(valeur_fournie_epaisseur))
+plt.legend()
+plt.annotate('Maximum', xy=Maximum,xytext=(0.5,0.0),arrowprops=dict(facecolor='blue',arrowstyle='<-'))
+plt.show()
