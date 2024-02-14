@@ -9,3 +9,17 @@ valeur_fournie_epaisseur= int(input("Donnez le numero (xx) de votre profil NACA 
 corde = float(input("Quelle est la corde en mètre de votre profil NACA :"))
 distribution = input("Quelle distribution de point souhaitez vous avoir : lineaire (l) ou non-lineaire (n)")
 nombre_points = int(input("Combien de point voulez vous le long de la corde :"))
+
+#epaisseur de profil t
+
+t = valeur_fournie_epaisseur / 100
+
+#Maillage de la corde
+xc = np.linspace(0, 1, num=nombre_points)
+
+# Extrados adimensionné
+yt = 5*t*(0.2969*xc**0.5-.1260*xc-.3516*xc**2+.2843*xc**3-.1036*xc**4)
+
+# extrados intrados réels
+yup = yt*corde
+ydown = -yt*corde
