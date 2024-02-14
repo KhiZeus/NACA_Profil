@@ -40,9 +40,8 @@ if distribution == 'l':
 else:
     teta = np.linspace(0, math.pi, num=nombre_points)
     xc = np.zeros(len(teta))
-    for i in range (len(teta)):
-        xc[i]= 0.5 * (1 - math.cos(teta[i]))
-
+    for i in range(len(teta)):
+        xc[i] = 0.5 * (1 - math.cos(teta[i]))
 
 # Extrados adimensionné
 yt = 5 * epaisseur * (0.2969 * xc ** 0.5 - .1260 * xc - .3516 * xc ** 2 + .2843 * xc ** 3 - .1036 * xc ** 4)
@@ -57,7 +56,7 @@ Maximum = maximum_profil_naca00xx(epaisseur, corde, precision)
 # impression du maximum
 print("La position du maximum est :", Maximum)
 
-#representation graphique
+# representation graphique
 plt.figure(figsize=(10, 10 * epaisseur + 3))
 plt.plot(x_reel, yup, 'g--', label='Extrados')
 plt.plot(x_reel, ydown, 'r--', label='Intrados')
@@ -74,5 +73,7 @@ arrowprops = dict(arrowstyle="->", connectionstyle="angle,angleA=0,angleB=90,rad
 offset = 12
 plt.annotate('Maximum', xy=Maximum,
              xytext=(4 * offset, offset), textcoords='offset points', bbox=bbox, arrowprops=arrowprops)
+
+plt.savefig(f'Profil NACA00{epaisseur}.pdf')
 
 plt.show()
